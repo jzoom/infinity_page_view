@@ -1,3 +1,6 @@
-## [0.0.1] - TODO: Add release date.
+## [0.0.1] - [2018/05/19]
+   * Init project
+   * Add example
+   * Infinity page view
+   
 
-* TODO: Describe initial release.
