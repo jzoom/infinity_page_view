@@ -2,7 +2,7 @@
 A Flutter infinity page view.
 
 
-!()[https://github.com/jzoom/infinity_page_view/raw/master/example/preview.gif]
+![](https://github.com/jzoom/infinity_page_view/raw/master/example/preview.gif)
 
 
 # Usage
