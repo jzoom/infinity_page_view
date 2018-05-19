@@ -30,7 +30,8 @@ class InfinityPageView extends StatefulWidget {
     this.onPageChanged,
     @required this.itemBuilder,
     @required this.itemCount,
-  })  : controller = controller ?? _defaultPageController,
+  })  : controller = controller.wrap(itemCount) ??
+            _defaultPageController.wrap(itemCount),
         assert(itemCount != null);
 
   @override
@@ -44,6 +45,11 @@ class InfinityPageController {
 
   int itemCount;
   int realIndex;
+
+  InfinityPageController wrap(int itemCount) {
+    this.itemCount = itemCount;
+    return this;
+  }
 
   InfinityPageController({
     int initialPage: 0,
@@ -124,23 +130,15 @@ class _InfinityPageViewState extends State<InfinityPageView> {
   }
 
   @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-  }
-
-  @override
   void didUpdateWidget(InfinityPageView oldWidget) {
-    if (widget.controller != oldWidget.controller) {
-      widget.controller.itemCount = widget.itemCount;
-      widget.controller.realIndex = oldWidget.controller.realIndex;
-    }
+    widget.controller.itemCount = widget.itemCount;
     super.didUpdateWidget(oldWidget);
   }
 
   @override
-  void initState() {
+  void didChangeDependencies() {
     widget.controller.itemCount = widget.itemCount;
-    super.initState();
+    super.didChangeDependencies();
   }
 
   @override
