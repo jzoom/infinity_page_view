@@ -4,3 +4,5 @@
    * Infinity page view
    
 
+## [0.0.2] - [2018/05/19]
+   * Update README
