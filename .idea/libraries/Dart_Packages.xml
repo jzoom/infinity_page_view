@@ -79,6 +79,13 @@
             </list>
           </value>
         </entry>
+        <entry key="cupertino_icons">
+          <value>
+            <list>
+              <option value="$PROJECT_DIR$/../flutter/.pub-cache/hosted/pub.flutter-io.cn/cupertino_icons-0.1.2/lib" />
+            </list>
+          </value>
+        </entry>
         <entry key="flutter">
           <value>
             <list>
@@ -401,6 +408,7 @@
       <root url="file://$PROJECT_DIR$/../flutter/.pub-cache/hosted/pub.flutter-io.cn/convert-2.0.1/lib" />
       <root url="file://$PROJECT_DIR$/../flutter/.pub-cache/hosted/pub.flutter-io.cn/crypto-2.0.2+1/lib" />
       <root url="file://$PROJECT_DIR$/../flutter/.pub-cache/hosted/pub.flutter-io.cn/csslib-0.14.1/lib" />
+      <root url="file://$PROJECT_DIR$/../flutter/.pub-cache/hosted/pub.flutter-io.cn/cupertino_icons-0.1.2/lib" />
       <root url="file://$PROJECT_DIR$/../flutter/.pub-cache/hosted/pub.flutter-io.cn/front_end-0.1.0-alpha.9/lib" />
       <root url="file://$PROJECT_DIR$/../flutter/.pub-cache/hosted/pub.flutter-io.cn/glob-1.1.5/lib" />
       <root url="file://$PROJECT_DIR$/../flutter/.pub-cache/hosted/pub.flutter-io.cn/html-0.13.3/lib" />
