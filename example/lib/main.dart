@@ -33,7 +33,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   void initState() {
-    infinityPageController = new InfinityPageController(initialPage: 0);
+    //  infinityPageController = new InfinityPageController(initialPage: 0);
     itemCount = 3;
     label = "1/${itemCount}";
     super.initState();

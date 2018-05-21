@@ -1,22 +1,30 @@
-import 'package:test/test.dart';
-import 'dart:async';
+import 'package:flutter/material.dart';
+import 'package:flutter_test/flutter_test.dart';
 
-import 'package:flutter/widgets.dart';
-import 'package:flutter/foundation.dart';
 import 'package:infinity_page_view/infinity_page_view.dart';
 
 void main() {
-//  test('adds one to input values', () {
-//    InfinityPageController controller = new InfinityPageController(initialPage: 0);
-//    InfinityPageView view = new InfinityPageView(itemBuilder: (BuildContext context,int index){
+  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
+    // Build our app and trigger a frame.
+    await tester.pumpWidget(new InfinityPageView(
+        itemBuilder: (BuildContext context, int index) {
+          return new Image.network(
+            "http://via.placeholder.com/350x150",
+            fit: BoxFit.fill,
+          );
+        },
+        itemCount: 3));
+
+//    // Verify that our counter starts at 0.
+//    expect(find.text('0'), findsOneWidget);
+//    expect(find.text('1'), findsNothing);
 //
-//    }, itemCount: 3,
-//    controller: controller,);
+//    // Tap the '+' icon and trigger a frame.
+//    await tester.tap(find.byIcon(Icons.add));
+//    await tester.pump();
 //
-////    final calculator = new Calculator();
-////    expect(calculator.addOne(2), 3);
-////    expect(calculator.addOne(-7), -6);
-////    expect(calculator.addOne(0), 1);
-////    expect(() => calculator.addOne(null), throwsNoSuchMethodError);
-//  });
+//    // Verify that our counter has incremented.
+//    expect(find.text('0'), findsNothing);
+//    expect(find.text('1'), findsOneWidget);
+  });
 }

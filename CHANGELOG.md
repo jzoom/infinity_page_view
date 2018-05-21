@@ -8,4 +8,9 @@
 
 ## [0.0.3] - [2018/05/19]
    * Init itemCount when create the controller
+   
+## [0.0.4] - [2018/05/21]
+   * Fix Init controller error when controller is null
+   
+ 
 
