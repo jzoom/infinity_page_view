@@ -12,5 +12,8 @@
 ## [0.0.4] - [2018/05/21]
    * Fix Init controller error when controller is null
    
- 
+## [0.0.5] - [2018/05/24]
+   * Fix zero itemCount bug
+
+
 

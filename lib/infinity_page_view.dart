@@ -5,6 +5,8 @@ import 'dart:async';
 import 'package:flutter/widgets.dart';
 import 'package:flutter/foundation.dart';
 
+final InfinityPageController _defaultPageController =
+new InfinityPageController();
 const int MAX_VALUE = 2000000000;
 const int MIDDLE_VALUE = 1000000000;
 
@@ -28,12 +30,9 @@ class InfinityPageView extends StatefulWidget {
     this.onPageChanged,
     @required this.itemBuilder,
     @required this.itemCount,
-  })  : controller = (controller == null
-            ? new InfinityPageController(initialPage: 0)
-            : controller),
-        assert(itemCount != null) {
-    this.controller.wrap(itemCount);
-  }
+  })  : controller = controller.wrap(itemCount) ??
+      _defaultPageController.wrap(itemCount),
+        assert(itemCount != null);
 
   @override
   State<StatefulWidget> createState() {
@@ -44,15 +43,11 @@ class InfinityPageView extends StatefulWidget {
 class InfinityPageController {
   final PageController pageController;
 
-  int _itemCount;
-
-  void set itemCount(int itemCount) => _itemCount = itemCount;
-  void set infiniteIndex(int infiniteIndex) => _infiniteIndex = infiniteIndex;
-
-  int _infiniteIndex;
+  int itemCount;
+  int realIndex;
 
   InfinityPageController wrap(int itemCount) {
-    _itemCount = itemCount;
+    this.itemCount = itemCount;
     return this;
   }
 
@@ -60,38 +55,39 @@ class InfinityPageController {
     int initialPage: 0,
     bool keepPage: true,
     double viewportFraction: 1.0,
-  })  : _infiniteIndex = initialPage + MIDDLE_VALUE,
+  })  : realIndex = initialPage + MIDDLE_VALUE,
         pageController = new PageController(
             initialPage: initialPage + MIDDLE_VALUE,
             keepPage: keepPage,
             viewportFraction: viewportFraction);
 
   int get page {
-    return calcIndex(this._infiniteIndex);
+    return calcIndex(this.realIndex);
   }
 
-  int calcIndex(int infiniteIndex) {
-    int index = (infiniteIndex - MIDDLE_VALUE) % _itemCount;
+  int calcIndex(int realIndex) {
+    if(itemCount == null || itemCount == 0)return 0;
+    int index = (realIndex - MIDDLE_VALUE) % this.itemCount;
     if (index < 0) {
-      index += _itemCount;
+      index += this.itemCount;
     }
     return index;
   }
 
   Future<Null> animateToPage(
-    int page, {
-    @required Duration duration,
-    @required Curve curve,
-  }) {
+      int page, {
+        @required Duration duration,
+        @required Curve curve,
+      }) {
     assert(page != null);
-    //find the nearest value greater/little than infiniteIndex
+    //find the nearest value greater/little than realIndex
     int offset = page - this.page;
 
     if (offset == 0) {
       return new Future.value(null);
     }
 
-    int destPage = offset + _infiniteIndex;
+    int destPage = offset + realIndex;
 
     return pageController.animateToPage(destPage,
         duration: duration, curve: curve);
@@ -109,8 +105,8 @@ class InfinityPageController {
 }
 
 class _InfinityPageViewState extends State<InfinityPageView> {
-  void _onPageChange(int infiniteIndex) {
-    widget.controller.infiniteIndex = infiniteIndex;
+  void _onPageChange(int realIndex) {
+    widget.controller.realIndex = realIndex;
     widget?.onPageChanged(widget.controller.page);
   }
 
