@@ -13,7 +13,7 @@ A Flutter infinity page view.
     
     dependencies:
      ...
-     infinity_page_view: ^0.0.2
+     infinity_page_view: ^0.0.5
     
 ```
  
