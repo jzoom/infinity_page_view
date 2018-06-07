@@ -1,6 +1,10 @@
 # infinity_page_view
 A Flutter infinity page view.
 
+[![build status](https://api.travis-ci.org/jzoom/infinity_page_view.svg?branch=master)](https://travis-ci.org/jzoom/infinity_page_view)
+
+# Showcase
+
 
 ![](https://github.com/jzoom/infinity_page_view/raw/master/preview.gif)
 
