@@ -14,6 +14,12 @@
    
 ## [0.0.5] - [2018/05/24]
    * Fix zero itemCount bug
+   
+## [1.0.0] - [2018/06/07]
+   * Redesign controller
+   * Add unit test
+   * Add CI
+
 
 
 
