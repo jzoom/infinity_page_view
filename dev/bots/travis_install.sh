@@ -5,7 +5,6 @@ echo "$PWD"
 
 export PATH="$HOME/dart-sdk/bin:$PATH"
 export ROOT="$PWD"
-export PACKAGES=("file" "file_testing")
 
 wget \
     --tries=3 \
@@ -14,7 +13,5 @@ wget \
 echo "Unzipping dart-sdk..."
 unzip dart-sdk.zip -d "$HOME" > /dev/null
 
-for package in "${PACKAGES[@]}"; do
-  cd $ROOT/packages/$package
-  pub get
-done
+cd $ROOT/package
+pub get

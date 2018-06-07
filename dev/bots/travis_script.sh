@@ -3,7 +3,6 @@ set -ex
 
 export PATH="$HOME/dart-sdk/bin:$PATH"
 export ROOT="$PWD"
-export PACKAGES=("file" "file_testing")
 
 if [[ "$SHARD" == "dartfmt" ]]; then
   dartfmt --dry-run --set-exit-if-changed packages || exit $?
@@ -15,6 +14,6 @@ elif [[ "$SHARD" == "analyze" ]]; then
   done
 else
   # tests shard
-  cd $ROOT/packages/file
+  cd $ROOT/package
   pub run test -j1 -rexpanded || exit $?
 fi
