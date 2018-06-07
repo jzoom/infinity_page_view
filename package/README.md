@@ -2,7 +2,7 @@
 A Flutter infinity page view.
 
 
-![](https://github.com/jzoom/infinity_page_view/raw/master/example/preview.gif)
+![](https://github.com/jzoom/infinity_page_view/raw/master/preview.gif)
 
 
 # Usage
@@ -13,7 +13,7 @@ A Flutter infinity page view.
     
     dependencies:
      ...
-     infinity_page_view: ^0.0.5
+     infinity_page_view: ^1.0.0
     
 ```
  

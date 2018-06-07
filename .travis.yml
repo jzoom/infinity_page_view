@@ -1,6 +1,5 @@
 env:
   - SHARD=dartfmt
-  - SHARD=tests
 install:
   - ./dev/bots/travis_install.sh
 script:
