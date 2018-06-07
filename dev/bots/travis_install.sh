@@ -14,4 +14,4 @@ echo "Unzipping dart-sdk..."
 unzip dart-sdk.zip -d "$HOME" > /dev/null
 
 cd $ROOT/package
-pub get
+flutter packages get
