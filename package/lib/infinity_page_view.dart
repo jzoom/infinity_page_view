@@ -66,7 +66,7 @@ class InfinityPageController  {
     return index;
   }
 
-  Future<Null> animateToPage(
+  Future<void> animateToPage(
       int page, {
         @required Duration duration,
         @required Curve curve,
